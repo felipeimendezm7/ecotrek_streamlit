@@ -59,6 +59,10 @@ if archivo is not None:
     # ------------------------------------------------------------
     # Conteo y porcentajes
     # ------------------------------------------------------------
+# 1. Visualización de la cantidad de reseñas por sentimiento
+# La parte del código que cumple este criterio es la que cuenta las 
+# categorías Positivo, Neutral y Negativo, calcula sus porcentajes y genera el gráfico circular:
+
     df_conteo = (
         df_reviews["Sentimiento"]
         .value_counts()
@@ -97,6 +101,11 @@ if archivo is not None:
     # ------------------------------------------------------------
     # Función para generar WordCloud
     # ------------------------------------------------------------
+# 2. Creación de tres nubes de palabras
+# Este criterio se cumple mediante la función generar_wordcloud(), que filtra 
+# las reseñas según su sentimiento y genera una nube de palabras diferente para cada categoría:
+
+
     def generar_wordcloud(
         df,
         sentimiento_filtro,
@@ -189,3 +198,18 @@ if archivo is not None:
             "Reds"
         )
         st.pyplot(fig_neg)
+
+
+# Reflexión sobre la experiencia de Vibe Coding
+# Lo que más me gustó de esta experiencia fue la rapidez con la que fue posible transformar 
+# una idea en un código funcional. A partir de instrucciones escritas en lenguaje natural, 
+# CHAT GPT permitió generar gran parte de la estructura necesaria para analizar
+# los datos y crear las visualizaciones. Lo que me gustó menos fue que el código 
+# generado inicialmente no estaba completamente preparado para ser utilizado en Streamlit.
+# Por ejemplo, utilizaba instrucciones como print(), fig.show() y plt.show(), 
+# que funcionaban correctamente en Google Colab, pero debieron ser modificadas
+# para presentarse dentro de una aplicación web. Sí fue necesario pasar por varias 
+# rondas de interacción con la herramienta. Primero se trabajó con el código en 
+# formato notebook y posteriormente fue necesario adaptarlo a Streamlit,
+# modificar la carga del archivo CSV, incorporar las librerías necesarias mediante 
+# requirements.txt y solucionar un error relacionado con la instalación de Plotly.
